@@ -84,11 +84,11 @@ library(gridExtra) # Pacote para unir os gráficos em uma janela
 library(grid) # Pacote que permite usar o argumento de título textGorb
 
 plot_china <- grid.arrange(g1, g2, g3, g4, ncol = 2,  # ncol se refere a número de colunas
-                    top = textGrob("China", gp = gpar(fontsize = 18, col = "Blue")))
+                    top = textGrob("China", gp = gpar(fontsize = 22, col = "#4575b4")))
 
 # Salvar gráfico ---------------------------------------------------------------------------------------------------------------------------
 
-ggsave("plot_china.pdf", plot, width = 15, height = 15)
+ggsave("plot_china.pdf", plot_china, width = 15, height = 15)
 
 # Referência -------------------------------------------------------------------------------------------------------------------------------
 
