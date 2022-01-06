@@ -45,48 +45,50 @@ library(ggplot2)
 d$Year <- as.factor(d$Year) # Transformar a variável Year em fator
 
 g1 <- ggplot(d, aes(x = Year, y = opioides, group = Code)) +
-  geom_line(size = 0.8) +
-  geom_point(size = 2.5) +
+  geom_line(size = 0.8, col = "#b2182b") +
+  geom_point(size = 2.5, col = "#b2182b") +
   labs(x = "Anos",
        y = "Mortes por overdose de Opióides") +
-  theme_minimal(base_size = 15) +
+  theme_minimal(base_size = 13) +
   theme(axis.text.x = element_text(angle = 60)) 
 g1
 
 g2 <- ggplot(d, aes(x = Year, y = Cocaina, group = Code)) +
-  geom_line(size = 0.8) +
-  geom_point(size = 2.5) +
+  geom_line(size = 0.8, col = "#b2182b") +
+  geom_point(size = 2.5, col = "#b2182b") +
   labs(x = "Anos",
        y = "Mortes por overdose de Cocaína") +
-  theme_minimal(base_size = 15) +
+  theme_minimal(base_size = 13) +
   theme(axis.text.x = element_text(angle = 60)) 
 g2
 
 g3 <- ggplot(d, aes(x = Year, y = Anfetamina, group = Code)) +
-  geom_line(size = 0.8) +
-  geom_point(size = 2.5) +
+  geom_line(size = 0.8, col = "#b2182b") +
+  geom_point(size = 2.5, col = "#b2182b") +
   labs(x = "Anos",
        y = "Mortes por overdose de Anfetamina") +
-  theme_minimal(base_size = 15) +
+  theme_minimal(base_size = 13) +
   theme(axis.text.x = element_text(angle = 60)) 
 g3
 
 g4 <- ggplot(d, aes(x = Year, y = Outras_drogas, group = Code)) +
-  geom_line(size = 0.8) +
-  geom_point(size = 2.5) +
+  geom_line(size = 0.8, col = "#b2182b") +
+  geom_point(size = 2.5, col = "#b2182b") +
   labs(x = "Anos",
        y = "Mortes por overdose - Outras drogas") +
-  theme_minimal(base_size = 15) +
+  theme_minimal(base_size = 13) +
   theme(axis.text.x = element_text(angle = 60)) 
 g4
 
 library(gridExtra) # Pacote para unir os gráficos em uma janela
+library(grid) # Pacote que permite usar o argumento de título textGorb
 
-plot <- grid.arrange(g1, g2, g3, g4, ncol = 2) # ncol se refere a número de colunas
+plot_china <- grid.arrange(g1, g2, g3, g4, ncol = 2,  # ncol se refere a número de colunas
+                    top = textGrob("China", gp = gpar(fontsize = 18, col = "Blue")))
 
 # Salvar gráfico ---------------------------------------------------------------------------------------------------------------------------
 
-ggsave("plot.pdf", plot, width = 15, height = 15)
+ggsave("plot_china.pdf", plot, width = 15, height = 15)
 
 # Referência -------------------------------------------------------------------------------------------------------------------------------
 
